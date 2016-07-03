@@ -2,7 +2,7 @@
 
 As a consequence of [Webstrates](github.com/cklokmose/Webstrates) replacing [ShareJS](https://github.com/share/ShareJS)
 with [ShareDB](https://github.com/share/sharedb), users will have to migrate their MongoDB databases in order to still
-use the prototyping and versioning functionality og Webstrates. Without migrating the databases, creating and accessing
+use the prototyping and versioning functionality of Webstrates. Without migrating the databases, creating and accessing
 snapshots will still be possible.
 
 ## FAQ
@@ -15,24 +15,24 @@ snapshots will still be possible.
        npm install
        npm start
 
-**Is this script only for Webstrates?**  \
+**Is this script only for Webstrates?**  \  
 No. The migration script was written with Webstrates in mind, but it _should_ work for any LiveDB/ShareDB database
 migration.
 
-**Do I need this?**  \
-If you rely on using the oplogs created with ShareJS for your ShareDB application, then the answer is yes. If not, you
+**Do I need this?**  \  
+If you rely on using the op logs created with ShareJS for your ShareDB application, then the answer is yes. If not, you
 can safely skip migration.
 
-**This script is really slow!**  \
-Yes. When testing the script on alarge database (about 15GB), Node would consistently run out of memory. The script
+**This script is really slow!**  \  
+Yes. When testing the script on a large database (about 15GB), Node would consistently run out of memory. The script
 therefore no longer uses bulk operations. As a consequence, the migration may take a long time.
 
-**The script crashed, my computer went to sleep or I cancelled it. What now?**  \
+**The script crashed, my computer went to sleep or I cancelled it. What now?**  \  
 The script is idempotent in the sense that running it multiple times on the same database won't do any harm. Likewise,
 if only part of your database was migrated before the script terminated, you can just run it again and the script will
 clean up and pick up from where it left off.
 
-**I'm getting an error: Unable to migrate <doc> (MongoError: <key> <error>)**  \
+**I'm getting an error: Unable to migrate `<doc>` (MongoError: `<key> <error>`)**  \  
 Something went wrong with a particular document, most likely because some invalid key name previously has managed to
 make its way into the database, but is now being confronted. We already try to fix this by replacing dots with double
 underscores (`.` becomes `__`) in key names, but some invalid names may still have slipped us by. The document's op log
