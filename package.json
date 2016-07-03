@@ -1,0 +1,13 @@
+{
+  "name": "migration-tool",
+  "version": "1.0.0",
+  "description": "Migrates a MongoDB ShareJS database to ShareDB.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "mongodb": "^2.1.19"
+  }
+}
