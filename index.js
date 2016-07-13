@@ -77,6 +77,7 @@ MongoClient.connect(url, function(err, db) {
 
 		var processNextOp = function(opsCursor, webstrate, opLink) {
 			opsCursor.hasNext(function(err, hasNext) {
+				if (err) throw err;
 				if (hasNext) {
 					opsCursor.next(function(err, op) {
 						var id = new ObjectId();

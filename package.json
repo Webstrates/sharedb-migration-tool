@@ -8,6 +8,6 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "mongodb": "^2.1.19"
+    "mongodb": "^2.2.1"
   }
 }
